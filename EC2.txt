@@ -1,0 +1,226 @@
+
+
+
+AWS - Amazon Web Services
+----------------------------------
+
+EC2 Syllabus
+-----------------
+
+==> Describe AMI and AWS Marketplaces templates
+==> Launch a basic EC2 instance
+==> Different types of Instances Reserved, On-Demand, Spot, Dedicated 
+==> Security groups and tags for EC2 instance
+==> Public key = Private key introduction and protecting EC2 with keys
+==> Attaching and detaching EBS volumes
+==> Launch an ec3 instance from an AMI
+==> Create custom AMI and working with different region
+==> Make use of amazon EBS volume and create snapshots
+==> Manage the configuration of your application 
+==> Deploying a new instance from the created AMI
+
+
+What is EC2
+------------------
+
+EC2 --> Elastic Compute Cloud
+
+It's Virtual server that you rent in AWS
+
+Provides secure,resizable compute capacity in the cloud
+
+Why EC2
+-----------------
+
+-->Easy to scale 
+-->Reliable
+-->User with Other services
+-->Only pay for what you use
+
+pricing for EC2
+------------------
+
+=> Free Tier
+=> On-Demand Instances -a virtual server that you can purchase and use as needed, without committing to long-term use or making upfront payments
+=> Savings plans  -  provide savings beyond On-Demand rates in exchange for a commitment of using a specified amount of compute power (measured per hour) for a one or three year period.
+=> Reserved instances - a billing discount that you receive for committing to use a specific instance type for a set period of time
+=> Spot Instances - a way to access unused Amazon Elastic Compute Cloud (EC2) capacity at a reduced cost 
+=> Dedicated Hosts -  a physical server that is entirely dedicated to a single customer's use
+=> Pre-second billing - bills Amazon EC2 instances in one-second increments, with a minimum of 60 seconds. its depands on OS
+
+EC2 Instance
+---------------------
+
+EC2 instance is a virtual server in Amazon Web Services (AWS) that allows users to run applications on the public cloud.
+
+EC2 Instance types
+--------------------
+On-Demand Instances
+
+--> Pay for compute capacity by per hour or per second.
+--> No longer-term commitments or upfront payments are needed.
+--> Users that prefer the low cost and flexibility of amazom EC2 without any up-front payment or long-term commitment
+--> Applications with short-term, spiky,or unpredictable workloads that cannot be interrupted
+--> Applications being developed or tested on Amazon EC2 for the first time.
+
+
+Reserved Instances
+
+--> Reserved Instances provide you with a sinificant discount(up to 75%) compareed to On-Demand instance pricing.
+
+--> Application with steady state usage
+--> Application that may require reserved capacity
+--> Customers that can commit to using EC2 over a 1 or 3 years term to reduce their total computing costs
+
+Spot Instances
+
+--> Amazon EC2 Spot instances allow you to request spare Amazon EC2 computing capacity for up to 90% off the On-Demand price.
+--> Spot Advisor
+--> Pricing History
+
+--> Application that have flexible start and end times 
+--> Application that are only feasible at very low compute prices
+--> Users with urgent computing needs for large amounts of additional capacity.
+
+======================================================================================================================================================================
+
+Day2
+------------
+
+Amazon Machine Images in Amazon EC2
+
+Amazon Machine Image (AMI) is a virtual image that provides the information needed to launch an Amazon Elastic Compute Cloud (EC2) instance
+
+What it is
+---------------
+
+An AMI is a template that contains the software, operating system, and other applications required to set up and boot an EC2 instance. 
+
+
+What it does
+---------------
+
+AMIs are used to create virtual servers, or EC2 instances, in the AWS environment. You can launch as many instances from as many different AMIs as you need.
+ 
+How it works
+---------------
+
+When you launch an instance, you must specify an AMI. The AMI includes a block device mapping that specifies which block devices to attach to the instance. 
+
+
+AMIs are categorized by: 
+-----------------------------
+
+--> Region 
+--> Operating system 
+--> System architecture (32- or 64-bit) 
+--> Launch permissions
+--> Root device  type
+--> virtualization type 
+
+Region
+--------
+
+A region is a geographic area that is separate from other regions.
+
+Operating System
+------------------
+-linux
+-unix
+-windows
+
+System Architecture
+-------------------
+AMI Architecture will either be 32-bit or 64-bit.
+
+launch permissions
+-------------------
+
+- public
+- explicit
+- implicit
+
+Root Device type
+------------------
+
+-Amazon EBS-backed AMI - Snapshot
+-Amazon instance store-backed AMI - S3
+
+Virtualization type
+--------------------
+-HVM
+
+-PV
+
+Steps to Create EC2 instance
+---------------------------------
+==> Choose an Amazon Machine Image(AMI)
+==> Choose an Instance Type
+==> Configure instance Details
+==> Add Storage
+==> Add Tags
+==> Configure Security Group
+==> Review Instance Launch
+
+========================================================================================================================================
+
+Steps to Create AMI
+--------------------------
+1. Configure an EC2 instance and its attached EBS volumes
+2. Log in to the AWS Management Console
+3. Click Instances
+4. Choose the instance from which you want to create a custom AMI
+5. Click Actions and click Create Image
+6. Type a name for Image Name
+7. (Optional) Enter a description for your image
+8. Click Create Image
+
+Why We Should Create AMI
+
+AMIs allow you to pre-install any required packages on an EC2 instance, 
+improve boot time, implement security controls for all instances simultaneously, 
+and launch production-ready instances quickly when needed.
+
+Benefits
+-----------
+
+=> Faster Setup
+=> Preconfigured Template
+=> Flexibility
+=> Cost reduction
+=> Backup and recovery
+=> Sparate Environment
+
+
+
+Snapshot
+------------
+In Amazon Web Services (AWS), a snapshot is a point-in-time copy of an Amazon EBS volume that's used for data protection and backup
+
+Benefits
+----------
+
+=> Data Protection
+=> Disaster Recovery
+=> Cost efficiency
+=> Flexibility
+=> Data backup
+
+Steps to Create Snapshots
+-------------------------------
+1. Sign in to the AWS Management Console 
+2. Go to Services, then Compute, then EC2 
+3. Select the EBS volume 
+4. Go to Actions, then Create Snapshot 
+5. Enter a description, encryption settings, and tags 
+6. Click Create Snapshot
+
+
+Ec2 Global View - To View Status of all Servers.
+
+Events - Creating events in Amazon EC2 instances can help ensure that your instances are running at optimal performance levels and minimize downtime
+         - if one instance is deleted or terminated then event will create 10 instance of that deleted instance
+Lounch Template - An EC2 launch template stores configuration information for launching instances, 
+                  which allows you to avoid specifying the same parameters each time you launch an instance
+
+
